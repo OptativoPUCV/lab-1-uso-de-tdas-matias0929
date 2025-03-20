@@ -164,3 +164,74 @@ arraylist.c:37:6: error: 'pushFront' defined but not used [-Werror=unused-functi
 cc1.exe: all warnings being treated as errors
 Compilation failed
 0fc1749
+Thu, Mar 20, 2025  6:10:32 PM: 
+ exercises.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:5:0:
+exercises.c: In function 'sumaLista':
+exercises.c:62:11: error: assignment makes integer from pointer without a cast [-Werror=int-conversion]
+       suma+=elemento;
+           ^~
+exercises.c: In function 'eliminaElementos':
+exercises.c:81:19: error: comparison between pointer and integer [-Werror]
+       if (elemento==elem){
+                   ^~
+exercises.c: In function 'copia_pila':
+exercises.c:98:21: error: initialization from incompatible pointer type [-Werror=incompatible-pointer-types]
+    Stack* aux_pilar=create_stack;
+                     ^~~~~~~~~~~~
+exercises.c:98:11: error: unused variable 'aux_pilar' [-Werror=unused-variable]
+    Stack* aux_pilar=create_stack;
+           ^~~~~~~~~
+In file included from test.c:6:0:
+arraylist.c: In function 'create_list':
+arraylist.c:15:34: error: invalid application of 'sizeof' to incomplete type 'List {aka struct List}'
+   List* L = (List*)malloc(sizeof(List));
+                                  ^~~~
+arraylist.c:16:4: error: dereferencing pointer to incomplete type 'List {aka struct List}'
+   L->current = 0;
+    ^~
+test.c: In function 'crea_lista':
+test.c:253:5: error: 'main' is normally a non-static function [-Werror=main]
+ int main( int argc, char *argv[] ) {
+     ^~~~
+test.c:271:1: error: expected declaration or statement at end of input
+ }
+ ^
+test.c:271:1: error: control reaches end of non-void function [-Werror=return-type]
+ }
+ ^
+In file included from test.c:6:0:
+arraylist.c: In function 'first':
+arraylist.c:27:1: error: control reaches end of non-void function [-Werror=return-type]
+ }
+ ^
+At top level:
+test.c:253:5: error: 'main' defined but not used [-Werror=unused-function]
+ int main( int argc, char *argv[] ) {
+     ^~~~
+test.c:37:6: error: 'info_msg' defined but not used [-Werror=unused-function]
+ void info_msg(char* msg){
+      ^~~~~~~~
+In file included from test.c:6:0:
+arraylist.c:102:5: error: 'get_size' defined but not used [-Werror=unused-function]
+ int get_size(List *L) {
+     ^~~~~~~~
+arraylist.c:89:7: error: 'popCurrent' defined but not used [-Werror=unused-function]
+ void* popCurrent(List *L) {
+       ^~~~~~~~~~
+arraylist.c:80:7: error: 'popBack' defined but not used [-Werror=unused-function]
+ void* popBack(List *L) {
+       ^~~~~~~
+arraylist.c:68:7: error: 'popFront' defined but not used [-Werror=unused-function]
+ void* popFront(List *L) {
+       ^~~~~~~~
+arraylist.c:55:6: error: 'pushCurrent' defined but not used [-Werror=unused-function]
+ void pushCurrent(List *L, void *dato) {
+      ^~~~~~~~~~~
+arraylist.c:37:6: error: 'pushFront' defined but not used [-Werror=unused-function]
+ void pushFront(List *L, void *dato) {
+      ^~~~~~~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+bb1ac4c
