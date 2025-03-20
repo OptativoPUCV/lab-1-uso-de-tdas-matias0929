@@ -40,31 +40,22 @@ Recuerda que la lista almacena punteros, por lo que
 debes reservar memoria para cada elemento que agregues.
 Al finalizar retorna la lista creada.
 */
-/*
+
 List* crea_lista() {
    List* L = create_list();
-   for (int i = 0 ; i < 10 ; i++){
-      int* num =(int*)malloc(sizeof(int));
-      *num = i;
-      pushBack(L ,num);
-   }
+   
    return L;
 }
-*/
+
 /*
 Ejercicio 2.
 Crea una función que reciba una lista de enteros (int*) y 
 retorne la suma de sus elementos.
 */
 int sumaLista(List *L) {
-   int suma=0;
-   int elemento=first(L);
-   while(elemento!=NULL){
-      suma+=elemento;
-      elemento=next(L);
-   }
+ 
    
-   return suma;
+   return 0;
 }
 
 /*
@@ -78,12 +69,6 @@ posiciona en el elemento anterior.
 
 void eliminaElementos(List*L, int elem){
    int* elemento=first(L);
-   while(elemento!=NULL){
-      if (elemento==elem){
-         popCurrent(L);
-      }
-      elemento=next(L);
-   }
 
 }
 

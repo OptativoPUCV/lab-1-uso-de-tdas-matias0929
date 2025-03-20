@@ -63,3 +63,21 @@ test.c:61:15: error: initialization makes pointer from integer without a cast [-
 cc1.exe: all warnings being treated as errors
 Compilation failed
 408cda7
+Thu, Mar 20, 2025  6:02:38 PM: 
+ exercises.c | 25 +++++--------------------
+ 1 file changed, 5 insertions(+), 20 deletions(-)
+In file included from test.c:5:0:
+exercises.c: In function 'eliminaElementos':
+exercises.c:71:9: error: unused variable 'elemento' [-Werror=unused-variable]
+    int* elemento=first(L);
+         ^~~~~~~~
+exercises.c: In function 'copia_pila':
+exercises.c:83:21: error: initialization from incompatible pointer type [-Werror=incompatible-pointer-types]
+    Stack* aux_pilar=create_stack;
+                     ^~~~~~~~~~~~
+exercises.c:83:11: error: unused variable 'aux_pilar' [-Werror=unused-variable]
+    Stack* aux_pilar=create_stack;
+           ^~~~~~~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+471e1a0
