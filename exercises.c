@@ -40,7 +40,7 @@ Recuerda que la lista almacena punteros, por lo que
 debes reservar memoria para cada elemento que agregues.
 Al finalizar retorna la lista creada.
 */
-
+/*
 List* crea_lista() {
    List* L = create_list();
    for (int i = 0 ; i < 10 ; i++){
@@ -50,7 +50,7 @@ List* crea_lista() {
    }
    return L;
 }
-
+*/
 /*
 Ejercicio 2.
 Crea una función que reciba una lista de enteros (int*) y 
@@ -96,7 +96,7 @@ Puedes usar una pila auxiliar.
 
 void copia_pila(Stack* P1, Stack* P2) {
    Stack* aux_pilar=create_stack;
-   
+
 }
 
 /*
