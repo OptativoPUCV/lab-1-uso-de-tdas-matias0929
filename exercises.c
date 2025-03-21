@@ -43,10 +43,11 @@ Al finalizar retorna la lista creada.
 
 List* crea_lista(){
    List* L = create_list();
-   for (int i = 1 ; i < 11 ; i++){
-      int* num =(int*)malloc(sizeof(int));
-      *num = i;
-      pushBack(L ,num);
+   for (int i = 1; i < 11; i++) {
+      int* num=(int*)malloc(sizeof(int));
+      *num=i;
+      pushBack(L, num);
+   }
    return L;
 }
 
@@ -57,12 +58,11 @@ retorne la suma de sus elementos.
 */
 int sumaLista(List *L) {
    int suma=0;
-   int elemento=first(L);
-   while(elemento!=NULL){
-      suma+=elemento;
-      elemento=next(L);
+   int *elemento=first(L);
+   while (elemento!= NULL) {
+       suma+=*elemento;  
+       elemento=next(L);
    }
-   
    return suma;
 }
 
@@ -75,16 +75,18 @@ Asume que popCurrent luego de eliminar un elemento se
 posiciona en el elemento anterior.
 */
 
-void eliminaElementos(List*L, int elem){
-   int* elemento=first(L);
-   while(elemento!=NULL){
-      if (elemento==elem){
-         popCurrent(L);
+void eliminaElementos(List *L, int elem) {
+   int *elemento=first(L);
+   while (elemento!=NULL) {
+      if (*elemento==elem) {
+         free(elemento);       
+         popCurrent(L);       
+         elemento=next(L);  
       }
-      elemento=next(L);
+      else{
+         elemento=next(L);  
+      }
    }
-
-
 }
 
 /*
@@ -95,7 +97,17 @@ Puedes usar una pila auxiliar.
 */
 
 void copia_pila(Stack* P1, Stack* P2) {
-   Stack* aux_pilar=create_stack;
+   Stack* aux_pila=createStack();
+
+   while (!is_empty(P1)) {
+       void* element=pop(P1);
+       push(aux_pila,elemento);
+   }
+   while (!is_empty(aux_pila)) {
+       void* elemento=pop(aux_pila);
+       push(P1, elemento); 
+       push(P2, elemento); 
+   }
 
 }
 
@@ -107,6 +119,20 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 */
 
 int parentesisBalanceados(char *cadena) {
-   return 0;
+   Stack *pila=createStack();
+
+   for (int i=0;cadena[i]!='\0'; i++) {
+       if (cadena[i]=='(') {
+           push(pila, (void*)1); 
+       } else if (cadena[i]==')') {
+           if (is_empty(pila)) {
+               return 0; 
+           }
+           pop(pila);
+       }
+   }
+
+   return is_empty(pila);
 }
+
 
